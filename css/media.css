@@ -1,0 +1,130 @@
+/*
+ * Made by Mashed Potatoes, feel free to distribute and mess around.
+ */
+
+/* Controls */
+
+.controls {
+	display: block;
+	position: relative;
+	background: #c3c3c3;
+	height: 25px;
+	padding-top: 0px;
+	margin-top: 0px;
+	top: -4px;
+	box-sizing: border-box;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.controls * {
+	box-sizing: border-box;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.currentTime {
+	position: absolute;
+	top: 4px;
+	left: 27px;
+	font-family: Arial;
+}
+
+.duration {
+	position: absolute;
+	top: 4px;
+	right: 80px;
+	font-family: Arial;
+}
+
+/* Fullscreen */
+
+.fullscreen {
+	position: absolute;
+	right: 5px;
+	z-index: 10;
+	background: rgba(255,255,255,0.5);
+	cursor: pointer;
+}
+
+/* Play Button */
+
+.play {
+	position: absolute;
+	border-right: 1pt solid #868686;
+}
+
+/* Volume Slider */
+
+.volumewrapper {
+	position: absolute;
+	width: 50px;
+	right: 5px;
+	top: 9px;
+	height: 7px;
+	background: white;
+	cursor: pointer;
+}
+
+.volume-icon {
+	position: absolute;
+	top: 0px;
+	right: 55px;
+	cursor: auto;
+}
+
+.volume {
+	position: absolute;
+	width: 80%;
+	background: #858585;
+	height: 7px;
+	max-width: 100%;
+}
+
+.volumeend {
+	background: #d6d6d6;
+	width: 5px;
+	height: 15px;
+	position: absolute;
+	right: 0;
+	top: -4px;
+	right: -2.5px;
+	cursor: e-resize;
+}
+
+/* Progress Slider */
+
+.sliderwrapper {
+	position: absolute;
+	width: 120px;
+	left: 75px;
+	top: 9px;
+	height: 7px;
+	background: white;
+	cursor: pointer;
+}
+
+.sliderprogress {
+	position: absolute;
+	background: #858585;
+	height: 7px;
+	max-width: 100%;
+}
+
+.sliderend {
+	background: #d6d6d6;
+	width: 5px;
+	height: 15px;
+	position: absolute;
+	right: -2.5px;
+	top: -4px;
+	cursor: e-resize;
+}
+
+video {
+	position: relative;
+	left: 100px;
+	top: 0;
+}

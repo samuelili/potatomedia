@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Audio Player</title>
+
+		<link rel="stylesheet" type="text/css" href="css/media.css">
+
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/audio.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<h1>Audio</h1>
+		<br>
+		<audio id="audio"></audio>
+		<script>
+			$('#audio').audio({
+				volume : 1,
+				url : '',
+				width : '100%',
+				src : '',
+				playlist : [{
+					name : "Happiest Kid in the World",
+					src : "http://static.m4christ.net/music/audio/mp3.studio/356_cja_happiest_kid_in_the_world.mp3",
+					addinfo : "Written By (Somebody's Name)"
+				}, {
+					name : "Jesus the Way Truth Life",
+					src : "http://static.m4christ.net/music/audio/mp3.studio/448_wag_jesus_the_way_truth_life.mp3",
+					addinfo : "Written By (Somebody's Name)"
+				}],
+				playlistOnEnd : 'loop',
+				playlistHeadHoverHide : true,
+				playlistAlwaysShow : true
+			});
+		</script>
+	</body>
+</html>
