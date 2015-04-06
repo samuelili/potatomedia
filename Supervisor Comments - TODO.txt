@@ -1,0 +1,9 @@
+1. Support themes.
+2. Miminize the knowledge of your code.
+3. Add playlists
+4. Add play(url) function.
+
+Mine:
+
+1. Make it more customizable.
+2. Make the default purtty.
