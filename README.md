@@ -12,3 +12,4 @@ var defaults = {
 	playlistAlwaysShow : false,
 	fallback : ''
 };
+<b>Hi</b>
