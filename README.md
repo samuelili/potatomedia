@@ -1,15 +1,14 @@
 # potatomedia
-Defaults:
-var defaults = {
-	volume : 0.8,
-	url : '',
-	src : '',
-	width : '300px',
-	playlist : [],
-	playlistPlay : 'loop',
-	playlistOnEnd : 'stop',
-	playlistHeadHoverHide : true,
-	playlistAlwaysShow : false,
-	fallback : ''
+Defaults:<br>
+var defaults = {<br>
+	volume : 0.8,<br>
+	url : '',<br>
+	src : '',<br>
+	width : '300px',<br>
+	playlist : [],<br>
+	playlistPlay : 'loop',<br>
+	playlistOnEnd : 'stop',<br>
+	playlistHeadHoverHide : true,<br>
+	playlistAlwaysShow : false,<br>
+	fallback : ''<br>
 };
-<b>Hi</b>
