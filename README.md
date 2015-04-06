@@ -1,5 +1,5 @@
 # potatomedia
-<h1>Defaults:</h1><br>
+<h2>Defaults:</h2><br>
 var defaults = {<br>
 	volume : 0.8,<br>
 	url : "",<br>
