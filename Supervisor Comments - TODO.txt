@@ -7,3 +7,6 @@ Mine:
 
 1. Make it more customizable.
 2. Make the default purtty.
+
+More:
+1. Use Ajax to load the playlsit.
