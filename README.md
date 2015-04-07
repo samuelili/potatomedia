@@ -10,5 +10,5 @@ var defaults = {<br>
 	playlistOnEnd : "stop",<br>
 	playlistHeadHoverHide : true,<br>
 	playlistAlwaysShow : false,<br>
-	fallback : ''<br>
+	fallback : ""<br>
 };
