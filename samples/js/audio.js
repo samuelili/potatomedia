@@ -72,28 +72,19 @@ if (window.jQuery) {
 
 			this.append(options.fallback);
 
-			if (options.playlist.length > 0) {
+			if (options.playlist != []) {
 
-				/* If playlist is added */
-
-				if (options.src === '') {
-					/* If the user did not input the src */
-					this.attr('src', options.playlist[0]);
-					audio.load();
+				if ( typeof options.playlist === 'string') {
+					$.getJSON(options.playlist, function(data) {
+						console.log(data);
+						options.playlist = data;
+						playlistReady();
+					});
 				} else {
-					/* Otherwise, input add it in itself if it is not already in the playlist */
-					if (options.playlist[0].src !== options.src) {
-						options.playlist.unshift({
-							name : options.src,
-							src : options.src,
-							addinfo : ''
-						});
-					}
+					playlistReady();
 				}
 
-				/* Playit! */
-				this.attr('src', options.playlist[0].src);
-				audio.load();
+				/* If playlist is added */
 			} else if (options.src === '') {
 				options.src = this.attr('src');
 				this.attr('src', options.src);
@@ -121,6 +112,13 @@ if (window.jQuery) {
 			var volumeslider = $('.volumewrapper', control);
 			volume.css('right', volumeslider.width() + 8);
 			$('.duration', control).css('right', volumeslider.width() + 33);
+
+			$(window).on('resize', function() {
+				slider.css('width', control.width() - (155 + $('.volumewrapper', control).width()));
+				volume.css('right', volumeslider.width() + 8);
+				console.log($('.duration', wrapper)[0]);
+				$('.duration', control).css('right', volumeslider.width() + 33);
+			});
 
 			var playurl = options.url + 'images/play.png';
 			var pauseurl = options.url + 'images/pause.png';
@@ -241,15 +239,30 @@ if (window.jQuery) {
 				}
 			};
 
-			$('.currentsong', wrapper).text((function() {
-				if (options.src === '') {
-					return options.playlist[0].name;
-				} else {
-					return options.src;
-				}
-			})());
+			$('.currentsong', wrapper).text(options.src);
 
-			if (playlist != []) {
+			function playlistReady() {
+
+				if (options.src === '') {
+					/* If the user did not input the src */
+					el.attr('src', options.playlist[0]);
+					audio.load();
+				} else {
+					/* Otherwise, input add it in itself if it is not already in the playlist */
+					if (options.playlist[0].src !== options.src) {
+						options.playlist.unshift({
+							name : options.src,
+							src : options.src,
+							addinfo : ''
+						});
+					}
+				}
+
+				/* Load It! */
+				el.attr('src', options.playlist[0].name);
+				audio.load();
+
+				$('.currentsong', wrapper).text(options.playlist[0].name);
 
 				for ( i = 0; i < options.playlist.length; i++) {
 					$('.playlist-tb .tbody table', wrapper).append('<tr><td class="unselected"><span class="song-title"></span><div class="addinfo"></div></td></tr>');
@@ -258,10 +271,10 @@ if (window.jQuery) {
 						current.children().removeClass('unselected').addClass('selected');
 					}
 					$('.song-title', current).text(options.playlist[i].name);
-					$('.addinfo', current).text(options.playlist[i].addinfo);
+					$('.addinfo', current).text(options.playlist[i].extraInfo);
 				}
 
-				this.on('ended', function(e) {
+				el.on('ended', function(e) {
 					allowhover = false;
 					currentsong++;
 					console.log(currentsong);
@@ -371,13 +384,16 @@ if (window.jQuery) {
 						audio.src = options.playlist[currentsong].src;
 						$('.currentsong', wrapper).text(options.playlist[currentsong].name);
 						audio.load();
-						audio.currentTime = 0;
+						el.one('canplay', function() {
+							audio.currentTime = 0;
+						});
 						if (playallow) {
 							audio.play();
 						}
 					}
 				});
 			}
+
 		};
 	})(jQuery);
 } else {
