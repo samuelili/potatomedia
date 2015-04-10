@@ -259,7 +259,7 @@ if (window.jQuery) {
 				}
 
 				/* Load It! */
-				el.attr('src', options.playlist[0].name);
+				el.attr('src', options.playlist[0].src);
 				audio.load();
 
 				$('.currentsong', wrapper).text(options.playlist[0].name);
