@@ -1,11 +1,59 @@
 [
 	{
-		"name": "Happiest Kid in the World",
-		"src": "http://static.m4christ.net/music/audio/mp3.studio/356_cja_happiest_kid_in_the_world.mp3",
-		"extraInfo": "Written by Joseph Shu"
+		"name": "(21) 我的靈魂渴慕你",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/021_cja_my_soul_desires_you.mp3",
+		"extraInfo": "作詞，作曲：李家欣"
 	}, {
-		"name": "Jesus the Way Truth Life",
-		"src": "http://static.m4christ.net/music/audio/mp3.studio/448_wag_jesus_the_way_truth_life.mp3",
-		"extraInfo": "Agnes Ng"
+		"name": "(5) 我最愛的你",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/005_cpa_my_most_beloved.mp3",
+		"extraInfo": "作詞，作曲：陳君如、張益滔"
+	}, {
+		"name": "(10) 還我誓願",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/010_cja_return_my_swear.mp3",
+		"extraInfo": "作詞，作曲：李家欣"
+	}, {
+		"name": "(11) 仰望上主的，必獲新力量",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/011_cpa_look_upon_the_lord.mp3",
+		"extraInfo": "聖經節錄，作曲：疏效平"
+	}, {
+		"name": "(19) 我的心歌彈詠唱",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/019_cph_my_heart.mp3",
+		"extraInfo": "作詞，作曲：嵇彭海、疏效平"
+	}, {
+		"name": "(20) 呼求聖神",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/020_cpa_please_come_holy_spirit.mp3",
+		"extraInfo": "作詞，作曲：曾梅娟"
+	}, {
+		"name": "(1) 風中的愛",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/001_cpa_love_of_wind.mp3",
+		"extraInfo": "作詞：疏效平；作曲：吳承章"
+	}, {
+		"name": "(8) 在天上除你以外",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/008_cph_beside_you.mp3",
+		"extraInfo": "聖經節錄，作曲：疏效平"
+	}, {
+		"name": "(9) 思念天上的事",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/009_cja_think_of_heaven_sing.mp3",
+		"extraInfo": "聖經節錄，作曲：李家欣"
+	}, {
+		"name": "(24) 全能永生的天主",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/024_cja_almighty_living_god.mp3",
+		"extraInfo": "作詞，作曲：疏效平"
+	}, {
+		"name": "(2) 基督的國",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/002_cpa_kingdom_of_christ.mp3",
+		"extraInfo": "聖經節錄：李家欣、疏效平，作曲：李家欣"
+	}, {
+		"name": "(13) 求你來臨",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/013_cpa_please_come.mp3",
+		"extraInfo": "作詞，作曲：李家欣"
+	}, {
+		"name": "(3) 信祂的人必有奇蹟相隨",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/003_cja_miracle_master.mp3",
+		"extraInfo": "作詞，作曲：周勤忠、李家欣"
+	}, {
+		"name": "(22) 我的心神歡躍於上主",
+		"src": "http://static.m4christ.net/music/audio/mp3.studio/022_cja_joy_spirit.mp3",
+		"extraInfo": "聖經節錄，作曲：疏效平"
 	}
 ]

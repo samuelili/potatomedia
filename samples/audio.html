@@ -21,18 +21,19 @@
 		<h1>Audio</h1>
 		<br>
 		<audio id="audio"></audio>
+
+		This is an audio player.
+		<br>
+		It has many attributes, mainly
+		<br>
+		consisting of playlist attributes
+		<br>
+		The playlist should also override this text when
+		<br>
+		expanded.
+		<h1>Playlist Below</h1>
+		<div class="playlist" style=""></div>
 		<script>
-			/*
-			 [{
-			 name : "Happiest Kid in the World",
-			 src : "356_cja_happiest_kid_in_the_world.mp3",
-			 extraInfo : "Written By (Somebody's Name)"
-			 }, {
-			 name : "Jesus the Way Truth Life",
-			 src : "448_wag_jesus_the_way_truth_life.mp3",
-			 extraInfo : "Written By (Somebody's Name)"
-			 }]
-			 */
 			$(function() {
 				$('#audio').audio({
 					volume : 1,
@@ -42,7 +43,8 @@
 					playlist : 'song_list.json',
 					playlistOnEnd : 'loop',
 					playlistHeadHoverHide : true,
-					playlistAlwaysShow : true
+					playlistAlwaysShow : true,
+					// playlistWrapper : $('.playlist'),
 				});
 			});
 		</script>

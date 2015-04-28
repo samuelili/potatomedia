@@ -34,6 +34,11 @@ if (window.jQuery) {
 
 		$.fn.audio = function(useroptions) {
 
+			var audio = this[0];
+			var el = this;
+			el.wrap('<div class="potatomedia-wrapper"></div>');
+			var wrapper = this.parent();
+
 			var defaults = {
 				volume : 0.8,
 				url : '',
@@ -44,6 +49,9 @@ if (window.jQuery) {
 				playlistOnEnd : 'stop',
 				playlistHeadHoverHide : true,
 				playlistAlwaysShow : false,
+				playlistMaxHeight : '185px',
+				playlistZIndex : true,
+				playlistWrapper : wrapper,
 				fallback : ''
 			};
 
@@ -51,10 +59,6 @@ if (window.jQuery) {
 
 			console.log(options);
 
-			var audio = this[0];
-			var el = this;
-			el.wrap('<div class="potatomedia-wrapper"></div>');
-			var wrapper = this.parent();
 			function getcss(a) {
 				var sheets = document.styleSheets,
 				    o = {};
@@ -100,9 +104,25 @@ if (window.jQuery) {
 
 			var controlhtml = '<div class="controls" style="min-width: 200px; width: ' + options.width + ';"><img class="audioplay play" src="' + options.url + 'images/play.png"><div class="currentTime">00:00</div><div class="sliderwrapper"><div class="sliderprogress"><div class="sliderend"></div></div></div><div class="duration">00:00</div><img class="volume-icon" src="' + options.url + 'images/volume.png"><div class="volumewrapper"><div class="volume"><div class="volumeend"></div></div></div></div>';
 			// <tr><td class="selected"><span class="song-title">Happiest Kid in the World</span><div class="addinfo">Written By (Somebody\'s Name)</div></td></tr><tr><td class="unselected"><span class="song-title">Jesus the Way Truth Life</span><div class="addinfo">Written By (Somebody \'s Name)</div></td></tr>
-			var playlist = '<table class="playlist-tb"><tr class="thead"><td class="currentsong">Error</td></tr><tr class="tbody"><td><div class="list-wrapper"><table></table></div></td></tr></table>';
-			wrapper.append(controlhtml + playlist);
+			var playlisthtml = '<tr class="thead"><td class="currentsong">Error</td></tr><tr class="tbody"><td><div class="list-wrapper"><table></table></div></td></tr>';
+			wrapper.append(controlhtml);
+			var playlist = document.createElement('table');
+			playlist.className = 'playlist-tb';
+			playlist.innerHTML = playlisthtml;
+			$(options.playlistWrapper).append(playlist);
+			if (options.playlistWrapper != wrapper) {
+				$(options.playlistWrapper).addClass('potatomedia-wrapper');
+				console.log(options.playlistWrapper);
+				options.playlistHeadHoverHide = false;
+				options.playlistAlwaysShow = true;
+			}
 			var control = this.next();
+			control.css('z-index', 6);
+			$('.list-wrapper', playlist).css({
+				'max-height' : options.playlistMaxHeight,
+				'overflow' : 'auto'
+			});
+			$('.playlist-tb', wrapper).css('z-index', 5);
 			$('.playlist-tb', wrapper).css('width', options.width);
 			var slider = $('.sliderwrapper', control);
 			slider.css('width', control.width() - (155 + $('.volumewrapper', control).width()));
@@ -116,7 +136,6 @@ if (window.jQuery) {
 			$(window).on('resize', function() {
 				slider.css('width', control.width() - (155 + $('.volumewrapper', control).width()));
 				volume.css('right', volumeslider.width() + 8);
-				console.log($('.duration', wrapper)[0]);
 				$('.duration', control).css('right', volumeslider.width() + 33);
 			});
 
@@ -262,16 +281,17 @@ if (window.jQuery) {
 				el.attr('src', options.playlist[0].src);
 				audio.load();
 
-				$('.currentsong', wrapper).text(options.playlist[0].name);
+				$('.currentsong', playlist).text(options.playlist[0].name);
 
 				for ( i = 0; i < options.playlist.length; i++) {
-					$('.playlist-tb .tbody table', wrapper).append('<tr><td class="unselected"><span class="song-title"></span><div class="addinfo"></div></td></tr>');
-					var current = $('.playlist-tb .tbody table tbody tr:nth-child(' + (i + 1) + ')', wrapper);
+					$('.list-wrapper table', playlist).append('<tr><td class="unselected"><span class="song-title"></span><div class="addinfo"></div></td></tr>');
+					var current = $('.tbody table tbody tr:nth-child(' + (i + 1) + ')', playlist);
 					if (i == 0) {
 						current.children().removeClass('unselected').addClass('selected');
 					}
 					$('.song-title', current).text(options.playlist[i].name);
 					$('.addinfo', current).text(options.playlist[i].extraInfo);
+					console.log(playlist);
 				}
 
 				el.on('ended', function(e) {
@@ -299,7 +319,7 @@ if (window.jQuery) {
 							}
 						});
 					}
-					$('.currentsong', wrapper).text((function() {
+					$('.currentsong', playlist).text((function() {
 						if (options.src === '') {
 							return options.playlist[currentsong].name;
 						} else {
@@ -307,37 +327,37 @@ if (window.jQuery) {
 						}
 					})());
 					$('.playlist-tb', wrapper).stop().animate({
-						top : '-4px'
+						top : '21px'
 					}, 200, function() {
 						var foo = this;
 						setTimeout(function() {
 							if (!allowhover) {
 								$(foo).stop().animate({
-									top : '-27px'
+									top : '-2px'
 								}, 200);
 							}
 						}, 800);
 					});
 					$('.list-wrapper', wrapper).slideUp(200);
-					$('.playlist-tb .tbody table tbody tr', wrapper).children().removeClass('selected').addClass('unselected');
-					$('.playlist-tb .tbody table tbody tr:nth-child(' + (currentsong + 1) + ')', wrapper).children().removeClass('unselected').addClass('selected');
+					$('.tbody table tbody tr', playlist).children().removeClass('selected').addClass('unselected');
+					$('.tbody table tbody tr:nth-child(' + (currentsong + 1) + ')', playlist).children().removeClass('unselected').addClass('selected');
 				});
 
 				var allowhover = true;
-				var thead = $('.playlist-tb .thead', wrapper);
+				var thead = $('.thead', playlist);
 
 				if (options.playlistHeadHoverHide) {
 					options.playlistAlwaysShow = false;
 					$('.playlist-tb', wrapper).hover(function() {
 						if (allowhover) {
 							$(this).stop().animate({
-								top : '-4px'
+								top : '21px'
 							}, 200);
 						}
 					}, function() {
 						allowhover = true;
 						$(this).stop().animate({
-							top : '-27px'
+							top : '-2px'
 						}, 200);
 						$('.list-wrapper', wrapper).slideUp(200);
 					});
@@ -364,10 +384,10 @@ if (window.jQuery) {
 						});
 					});
 				} else {
-					var $el = $('.list-wrapper', wrapper);
+					var $el = $('.list-wrapper', playlist);
 					$el.css('display', 'block');
 				}
-				var $playlistItem = $('.playlist-tb .tbody table td', wrapper);
+				var $playlistItem = $('.tbody table td', playlist);
 
 				$playlistItem.on('click', function(e) {
 					$('.playlist-tb tbody table td').removeClass('selected');

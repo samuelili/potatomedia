@@ -4,7 +4,13 @@
 
 /* Controls */
 
-.controls {
+.potatomedia-wrapper {
+	height: 25px;
+	margin-bottom: 8px;
+	position: relative;
+}
+
+.potatomedia-wrapper .controls {
 	display: block;
 	position: relative;
 	background: #c3c3c3;
@@ -12,36 +18,37 @@
 	padding-top: 0px;
 	margin-top: 0px;
 	top: -4px;
+	z-index: 1;
 	box-sizing: border-box;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
 
-.controls * {
+.potatomedia-wrapper .controls * {
 	box-sizing: border-box;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
 
-.currentTime {
+.potatomedia-wrapper .currentTime {
 	position: absolute;
 	top: 4px;
 	left: 27px;
 	font-family: Arial;
 }
 
-.duration {
+.potatomedia-wrapper .duration {
 	position: absolute;
 	top: 4px;
-	right: 80px;
+	right: 55px;
 	font-family: Arial;
 }
 
 /* Fullscreen */
 
-.fullscreen {
+.potatomedia-wrapper .fullscreen {
 	position: absolute;
 	right: 5px;
 	z-index: 10;
@@ -51,31 +58,32 @@
 
 /* Play Button */
 
-.play {
+.potatomedia-wrapper .play {
 	position: absolute;
 	border-right: 1pt solid #868686;
 }
 
 /* Volume Slider */
 
-.volumewrapper {
+.potatomedia-wrapper .volumewrapper {
 	position: absolute;
-	width: 50px;
-	right: 5px;
+	min-width: 25px;
+	width: 10%;
+	right: 8px;
 	top: 9px;
 	height: 7px;
 	background: white;
 	cursor: pointer;
 }
 
-.volume-icon {
+.potatomedia-wrapper .volume-icon {
 	position: absolute;
 	top: 0px;
-	right: 55px;
+	right: 30px;
 	cursor: auto;
 }
 
-.volume {
+.potatomedia-wrapper .volume {
 	position: absolute;
 	width: 80%;
 	background: #858585;
@@ -83,7 +91,7 @@
 	max-width: 100%;
 }
 
-.volumeend {
+.potatomedia-wrapper .volumeend {
 	background: #d6d6d6;
 	width: 5px;
 	height: 15px;
@@ -96,7 +104,7 @@
 
 /* Progress Slider */
 
-.sliderwrapper {
+.potatomedia-wrapper .sliderwrapper {
 	position: absolute;
 	width: 120px;
 	left: 75px;
@@ -106,14 +114,14 @@
 	cursor: pointer;
 }
 
-.sliderprogress {
+.potatomedia-wrapper .sliderprogress {
 	position: absolute;
 	background: #858585;
 	height: 7px;
 	max-width: 100%;
 }
 
-.sliderend {
+.potatomedia-wrapper .sliderend {
 	background: #d6d6d6;
 	width: 5px;
 	height: 15px;
@@ -123,8 +131,78 @@
 	cursor: e-resize;
 }
 
-video {
-	position: relative;
-	left: 100px;
-	top: 0;
+/* Playlist */
+
+.potatomedia-wrapper .playlist-tb {
+	border-collapse: collapse;
+	font-family: Arial;
+	box-sizing: border-box;
+	border: none;
+	position: absolute;
+	top: -2px;
+	z-index: 0;
+	width: 100%;
+}
+
+.potatomedia-wrapper .playlist-tb * {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody .list-wrapper {
+	display: none;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.potatomedia-wrapper .playlist-tb .thead td {
+	height: 30px;
+	width: 100%;
+	background: #2b2b2b;
+	color: #d2d2d2;
+	padding: 5px;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody tr {
+	width: 100%;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody td {
+	padding: 0;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody td.unselected {
+	width: 100%;
+	background: #898989;
+	height: 45px;
+	max-height: 45px;
+	border-top: 1pt solid #767676;
+	cursor: pointer;
+	padding: 5px;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody td.selected {
+	width: 100%;
+	background: #bababa;
+	height: 45px;
+	max-height: 45px;
+	border-top: 1pt solid #767676;
+	cursor: auto;
+	padding: 5px;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody .song-title {
+	font-size: 13pt;
+}
+
+.potatomedia-wrapper .playlist-tb .tbody .addinfo {
+	font-size: 12px;
+	display: block;
+	overflow: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+	max-height: 15px;
 }

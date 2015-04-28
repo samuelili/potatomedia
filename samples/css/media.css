@@ -4,6 +4,12 @@
 
 /* Controls */
 
+.potatomedia-wrapper {
+	height: 25px;
+	margin-bottom: 8px;
+	position: relative;
+}
+
 .potatomedia-wrapper .controls {
 	display: block;
 	position: relative;
@@ -132,9 +138,10 @@
 	font-family: Arial;
 	box-sizing: border-box;
 	border: none;
-	position: relative;
-	top: -27px;
+	position: absolute;
+	top: -2px;
 	z-index: 0;
+	width: 100%;
 }
 
 .potatomedia-wrapper .playlist-tb * {
