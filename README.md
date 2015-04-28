@@ -10,5 +10,8 @@ var defaults = {<br>
 	playlistOnEnd : "stop",<br>
 	playlistHeadHoverHide : true,<br>
 	playlistAlwaysShow : false,<br>
+	playlistMaxHeight : '185px',
+	playlistZIndex : true,
+	playlistWrapper : wrapper (default wrapper),
 	fallback : ""<br>
 };
